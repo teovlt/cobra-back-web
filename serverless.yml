@@ -1,0 +1,14 @@
+service: express-lambda
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  region: eu-west-3
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi: '*'
+
+plugins: []
