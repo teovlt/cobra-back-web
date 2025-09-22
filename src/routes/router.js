@@ -1,6 +1,10 @@
-import { Router } from 'express';
+import { Router } from "express";
+import userRouter from "./userRoutes.js";
 
 export const router = Router();
+
+//API routes
+router.use("/users", userRouter);
 
 /**
  * @route GET /api/ping
@@ -8,8 +12,8 @@ export const router = Router();
  * @access Public
  * @returns {object} Returns a JSON object with a message property indicating the server is running.
  */
-router.get('/ping', (req, res) => {
-  res.status(200).json({ message: 'The server is running!' });
+router.get("/ping", (req, res) => {
+  res.status(200).json({ message: "The server is running!" });
 });
 
 /**
@@ -18,6 +22,6 @@ router.get('/ping', (req, res) => {
  * @access Public
  * @returns {object} Returns a JSON object with an error property indicating the route was not found.
  */
-router.use('/', (req, res) => {
+router.use("/", (req, res) => {
   res.status(404).json({ error: `The requested route ${req.originalUrl} was not found` });
 });
