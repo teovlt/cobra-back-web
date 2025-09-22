@@ -12,6 +12,7 @@
   "packageManager": "pnpm@10.6.5",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.893.0",
+    "@aws-sdk/lib-dynamodb": "^3.893.0",
     "@vendia/serverless-express": "^4.12.6",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
