@@ -22,6 +22,7 @@
     "nodemon": "^3.1.10",
     "npm": "^11.6.0",
     "prettier": "^3.6.2",
-    "serverless-express": "^2.0.12"
+    "serverless-express": "^2.0.12",
+    "openid-client": "6.8.0"
   }
 }

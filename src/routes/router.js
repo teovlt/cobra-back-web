@@ -1,4 +1,5 @@
-import { Router } from 'express';
+import { Router } from "express";
+import { checkAuth } from "../middlewares/isAuthenticated";
 
 export const router = Router();
 
@@ -8,16 +9,13 @@ export const router = Router();
  * @access Public
  * @returns {object} Returns a JSON object with a message property indicating the server is running.
  */
-router.get('/ping', (req, res) => {
-  res.status(200).json({ message: 'The server is running!' });
+router.get("/ping", (req, res) => {
+  res.status(200).json({ message: "The server is running!" });
 });
 
-/**
- * @route ALL *
- * @description Handles all other routes and returns a 404 error if the route is not found.
- * @access Public
- * @returns {object} Returns a JSON object with an error property indicating the route was not found.
- */
-router.use('/', (req, res) => {
-  res.status(404).json({ error: `The requested route ${req.originalUrl} was not found` });
+router.get("/", checkAuth, (req, res) => {
+  res.render("home", {
+    isAuthenticated: req.isAuthenticated,
+    userInfo: req.session.userInfo,
+  });
 });

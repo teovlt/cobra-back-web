@@ -7,7 +7,7 @@ provider:
 
 functions:
   api:
-    handler: index.handler
+    handler: lamdba.handler
     events:
       - httpApi: "*"
 
